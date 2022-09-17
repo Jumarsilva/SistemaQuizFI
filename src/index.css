@@ -1,0 +1,54 @@
+:root{
+    --main-color: #0000A4;
+    --font-color: #FEFEFE;
+    --button-color:#04ADFF;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    color: var(--font-color);
+
+}
+
+body, html{
+    height: 100%;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #01015e, #0000a4);
+}
+
+img{
+    max-width: 100%;
+}
+
+button{
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(
+        90deg, 
+        #04ADFF 0%, 
+        #0000a4 100%
+        );
+    border: none;
+    border-radius:  3rem;
+}
+
+button:hover {
+    background: linear-gradient(
+        90deg, 
+        #0000a4 0%, 
+        #04ADFF 100%
+        );
+}
+
+
+a{
+    text-decoration: none;
+}
+
+
