@@ -1,12 +1,55 @@
 const express = require('express');
-const routes = express.Router()
+const routes = express.Router();
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+const mysql = require('mysql');
+
+const conectionBD = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password:'password',
+    database: 'banco',
+    port:"3306",
+})
+
 
 
 let db = [
-    {'1': {nome: 'Cliente 1', idade: '20'}},
-    {'2': {nome: 'Cliente 2', idade: '20'}},
-    {'3': {nome: 'Cliente 3', idade: '20'}}
+
+    {
+        question: "O que é a Lei do Bem ?",
+        options: ["Algo de comer", "Algo de beber", "Incentivo fiscal",  ],
+        answer: "Incentivo fiscal",
+        tip: "esta relacionado ao governo",
+    },
+    {
+        question: "O que é a Lei da Informática?",
+        options: ["Algo de comer", "Algo de beber", "Incentivo fiscal",  ],
+        answer: "Incentivo fiscal",
+        tip: "esta relacionado ao governo",
+    },
+    {
+        question: "O que é Ex-tarifário ?",
+        options: ["Algo de comer", "Algo de beber", "Incentivo fiscal",  ],
+        answer: "Incentivo fiscal",
+        tip: "esta relacionado ao governo",
+    },
+    {
+        question: "O que é Rota 2030 ?",
+        options: ["Algo de comer", "Algo de beber", "Incentivo fiscal",  ],
+        answer: "Incentivo fiscal",
+        tip: "esta relacionado ao governo",
+    },
+    {
+        question: "O que é Imposto para importação ?",
+        options: ["Algo de comer", "Algo de beber", "Incentivo fiscal",  ],
+        answer: "Incentivo fiscal",
+        tip: "esta relacionado ao governo",
+    },
+
 ]
+
 
 
 //metodo para pegar os dados
@@ -16,17 +59,64 @@ routes.get('/', (req, res)=>{
 
 
 //método para adicionar dados
-routes.post('/add', (req, res)=>{
-    const body = req.body
+routes.post('/register', (req, res)=>{
+    
+    const email = req.body.email;
+    const password = req.body.password;
 
-    if (!body) {
-        return res.status(400).end();
-    }
+    conectionBD.query("SELECT * FROM usuarios WHERE email = ?", [email], (err,result)=>{
+        if(err){
+            res.send(err);
+        }
+        if(result.length == 0){
+            bcrypt.hash(password, saltRounds, (res, hash)=>{
+                          
+            conectionBD.query("INSERT INTO usuarios (email, password) VALUES (?, ?)", [email, hash], (err, response)=>{
+                if(err){
+                    res.send(err)
+                }
 
-    db.push(body)
+                res.send({msg: "cadastrado com sucesso"})
+            })
 
-    return res.json(body)
+
+            })
+  
+        }else{
+            res.send({msg: "Usuario já cadastrado"})
+        }
+
+    })
+
 })
+
+routes.post('/login', (req, res)=>{
+    const email = req.body.email;
+    const password = req.body.password;
+
+    conectionBD.query("SELECT * FROM usuarios WHERE email =?", [email], (err, result)=>{
+        if (err) {
+            res.send(err)
+        }
+        if (result.length > 0) {
+            bcrypt.compare(password, result[0].password, (erro, result)=>{
+                if (result) {
+                   
+                    res.send({msg: "usuario logado com sucesso"})
+       
+                }else{
+                    res.send({msg: "Senha incorreta"})
+                }
+            })  }
+        else{
+            res.send({msg: "Conta não encontrada"})
+        }
+    })
+
+
+
+})
+
 
 routes.delete('/:id', (req, res)=>{
     const id = req.params.id 
