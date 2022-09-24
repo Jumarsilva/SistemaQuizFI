@@ -1,5 +1,5 @@
+/* ===== Google Font Import - Poformsins ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
 
 *{
     margin: 0;
@@ -13,12 +13,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-color: #4070f4;
 }
 
 .container{
     position: relative;
-    max-width: 500px;
+    max-width: 430px;
     width: 100%;
     background: #fff;
     border-radius: 10px;
@@ -32,31 +32,22 @@ body{
     align-items: center;
     height: 440px;
     width: 200%;
-    background-color: #265df2;
     transition: height 0.2s ease;
-    
 }
 
 
 .container .form{
-    width: 150%;
+    width: 50%;
     padding: 30px;
     background-color: #fff;
     transition: margin-left 0.18s ease;
-   
 }
-
-.form-error{
-    color: red;
-}
-
 
 .container.active .login{
-    margin-left: -100%;
+    margin-left: -50%;
     opacity: 0;
     transition: margin-left 0.18s ease, opacity 0.15s ease;
 }
-
 
 .container .signup{
     opacity: 0;
@@ -67,15 +58,12 @@ body{
     transition: opacity 0.2s ease;
 }
 
-
 .container.active .forms{
-    height: 500px;
-    width: 100%;
+    height: 600px;
 }
-
 .container .form .title{
     position: relative;
-    font-size: 40px;
+    font-size: 27px;
     font-weight: 600;
 }
 
@@ -97,8 +85,8 @@ body{
     margin-top: 30px;
 }
 
-.input-field .form-field{
-    
+.input-field input{
+    position: absolute;
     height: 100%;
     width: 100%;
     padding: 0 35px;
@@ -108,13 +96,11 @@ body{
     border-bottom: 2px solid #ccc;
     border-top: 2px solid transparent;
     transition: all 0.2s ease;
-
 }
 
-.input-field .form-field:is(:focus, :valid){
+.input-field input:is(:focus, :valid){
     border-bottom-color: #4070f4;
 }
-
 
 .input-field i{
     position: absolute;
@@ -123,21 +109,56 @@ body{
     color: #999;
     font-size: 23px;
     transition: all 0.2s ease;
-
 }
 
-
-
-.input-field .form-field:is(:focus, :valid) ~ i{
+.input-field input:is(:focus, :valid) ~ i{
     color: #4070f4;
 }
 
+.input-field i.icon{
+    left: 0;
+}
+.input-field i.showHidePw{
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.form .checkbox-text{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    margin-top: 20px;
+}
+
+.checkbox-text .checkbox-content{
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-content input{
+    margin: 0 8px -2px 4px;
+    accent-color: #4070f4;
+}
+
+.form .text{
+    color: #333;
+    font-size: 14px;
+}
+
+.form a.text{
+    color: #4070f4;
+    text-decoration: none;
+}
+.form a:hover{
+    text-decoration: underline;
+}
 
 .form .button{
     margin-top: 35px;
 }
 
-.form button{
+.form .button input{
     border: none;
     color: #fff;
     font-size: 17px;
@@ -149,55 +170,11 @@ body{
     transition: all 0.3s ease;
 }
 
-.form button:hover{
+.button input:hover{
     background-color: #265df2;
 }
-
-
-.form a.text{
-    color: #4070f4;
-    text-decoration: none;
-}
-.form a:hover{
-    text-decoration: underline;
-}
-
 
 .form .login-signup{
     margin-top: 30px;
     text-align: center;
 }
-
-
-.form .checkbox-text{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.checkbox-text .checkbox-content{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    margin-left: 20px;
-}
-
-
-.checkbox-text .checkbox-content a{
-    margin-left: 100px;
-}
-
-.checkbox-text .checkbox-content label{
-    margin-left: 10px;
-}
-
-
-.form .text{
-    color: #333;
-    font-size: 14px;
-}
-
-
-
-

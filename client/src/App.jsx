@@ -6,7 +6,7 @@ import Login from './pages/Login';
 import Quiz from './pages/Quiz';
 
 //bibliotecas
-import Axios from 'axios';
+
 
 
 //estáticos

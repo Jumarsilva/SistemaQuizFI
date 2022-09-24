@@ -1,14 +1,25 @@
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as yup from 'yup'
 
-import React from 'react'
+import {useState, useEffect} from 'react'
 
 import './Login.css'
 import Axios from 'axios'
 
-import Quiz from './Quiz'
+import {AiOutlineMail} from 'react-icons/ai'
+import {RiLockPasswordLine} from 'react-icons/ri'
 
 const Login = () => {
+
+    const [active, setActive] = useState(false);
+
+    
+    const onClickSignup = ()=>{
+        if (active) {
+           setActive(active) 
+        }
+        setActive(!active)
+    }
 
     const handleClickRegister = (values)=> {
         Axios.post("http://localhost:21262/register", {
@@ -25,10 +36,6 @@ const Login = () => {
         }).then((response)=>{
             console.log(response)
         });
-
-
-
-
     }
 
     const validationLogin = yup.object().shape({
@@ -58,95 +65,135 @@ const Login = () => {
     });
 
   return (
-    <div className='container'>
-        <h1>Login</h1>
-        <Formik initialValues={{}} onSubmit={handleClickLogin} validationSchema={validationLogin}>
-            <Form className='login-form'>
-                <div className="login-form-group">
-                    <Field 
-                    name="email" 
-                    className="form-field" 
-                    placeholder="Email"/>
+    //login
+    <div className={`container ${active ? 'active': ''}`}>
+        <div className='forms'>
+            <div className="form login">
+                <span className='title'>Login</span>
 
-                    <ErrorMessage 
-                    component="span"
-                    name='email' 
-                    className='form-error'/>
+                <Formik initialValues={{}} onSubmit={handleClickLogin} validationSchema={validationLogin}>
+                    <Form >
+                        <div className="input-field">
+                            
+                            <Field 
+                            name="email" 
+                            className="form-field" 
+                            placeholder="E-mail"/>
+
+                            <ErrorMessage 
+                            component="span"
+                            name='email' 
+                            className='form-error'/>
+                            <i className="uil uil-envelope icon">
+                                <AiOutlineMail/>
+                            </i>
+                        </div>
+
+                        <div className="input-field">
+                            <Field 
+                            name="password" 
+                            className="form-field" 
+                            placeholder="Senha"/>
+
+                            <ErrorMessage 
+                            component="span" 
+                            name='password' 
+                            className='form-error'/>
+                            <i className="uil-locker"><RiLockPasswordLine/></i>
+                        </div>
+
+                        <div className="checkbox-text">
+                            <div className="checkbox-content">
+                                <input type="checkbox" id='logCheck'/>
+                                <label htmlFor="logCheck" className='text'>Relembrar a senha</label>
+                                <a href="#" className='text'>Esqueceu a senha ?</a>
+                            </div>
+                        </div>
+
+
+
+                        <button className='input-field button' type='submit'>Login</button>
+                    </Form>
+                </Formik>
+                <div className="login-signup">
+                    <span className="text">Não se cadastrou ? - </span>
+                    <a href="#" className="text signup-link" onClick={onClickSignup}>Cadastre-se agora</a>
                 </div>
-
-                <div className="login-form-group">
-                    <Field 
-                    name="password" 
-                    className="form-field" 
-                    placeholder="Senha"/>
-
-                    <ErrorMessage 
-                    component="span" 
-                    name='password' 
-                    className='form-error'/>
-                </div>
-
-                <button className='button' type='submit'>Login</button>
-
-            </Form>
-
-        </Formik>
-
-        <h1>Cadastro</h1>
-
-        <Formik
-        initialValues={{}} 
-        onSubmit={handleClickRegister} 
-        validationSchema={validationRegister}>
-            <Form className='login-form'>
-                <div className="login-form-group">
-                    <Field 
-                    name="email" 
-                    className="form-field" 
-                    placeholder="Email"/>
-
-                    <ErrorMessage 
-                    component="span"
-                    name='email' 
-                    className='form-error'/>
-                </div>
-
-                <div className="login-form-group">
-                    <Field 
-                    name="password" 
-                    className="form-field" 
-                    placeholder="Senha"/>
-
-                    <ErrorMessage 
-                    component="span" 
-                    name='password' 
-                    className='form-error'/>
-                </div>
-
-                <div className="login-form-group">
-                    <Field 
-                    name="confirmPassword" 
-                    className="form-field" 
-                    placeholder="Confirme sua senha"/>
-
-                    <ErrorMessage 
-                    component="span" 
-                    name='confirmPassword' 
-                    className='form-error'/>
-                </div>
-
-                <button className='button' type='submit'>Cadastrar</button>
-
-            </Form>
-
-        </Formik>
-
-
-
-
-
-
+            </div>
         
+            <div className='form signup'>
+
+                <span className='title'>Cadastro</span>
+
+                <Formik
+                initialValues={{}} 
+                onSubmit={handleClickRegister} 
+                validationSchema={validationRegister}>
+                    <Form >
+                        <div className="input-field">
+                            <Field 
+                            name="email" 
+                            className="form-field" 
+                            placeholder="Email"/>
+
+                            <ErrorMessage 
+                            component="span"
+                            name='email' 
+                            className='form-error'/>
+                             <i className="uil uil-envelope icon">
+                                <AiOutlineMail/>
+                            </i>
+                        </div>
+
+                        <div className="input-field">
+                            <Field 
+                            name="password" 
+                            className="form-field" 
+                            placeholder="Senha"/>
+
+                            <ErrorMessage 
+                            component="span" 
+                            name='password' 
+                            className='form-error'/>
+                             <i className="uil-locker"><RiLockPasswordLine/></i>
+                        </div>
+
+                        <div className="input-field">
+                            <Field 
+                            name="confirmPassword" 
+                            className="form-field" 
+                            placeholder="Confirme sua senha"/>
+
+                            <ErrorMessage 
+                            component="span" 
+                            name='confirmPassword' 
+                            className='form-error'/>
+                             <i className="uil-locker"><RiLockPasswordLine/></i>
+                        </div>
+                        <div className="checkbox-text">
+                            <div className="checkbox-content">
+                                <input type="checkbox" name="checkbox" id="termCon" />
+                                <label htmlFor="termCon" className='text'>  Eu aceito todos os termos e condições</label>
+                            </div>
+                        </div>
+
+
+                        <button className='input-field button' type='submit'>Cadastrar</button>
+
+                        <div className="login-signup">
+                            <span className='text'>
+                                Tudo certo ?
+                                <a onClick={onClickSignup} href="/" className='text login-link'>Entrar agora</a>
+                            </span>
+
+                        </div>
+
+                    </Form>
+
+                </Formik>
+
+            </div>
+        </div>
     </div>
   )
 }
