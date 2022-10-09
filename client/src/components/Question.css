@@ -1,9 +1,37 @@
-#question{
+.box{
     text-align: center;
-    max-width: 500px;
-    background-color: #5454a8;
-    border-radius: 1rem;
-    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2);
+    padding: 50px;
+    min-height: 350px;
+    width: 100%;
+}
+
+.title{
+    border-bottom: 1px solid #5454a8;
+    color: #5454a8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+
+.header{
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.scoreBox, .currentQuestions{
+    border-radius: 100px;
+    padding: 10px 15px;
+    border: 1px solid  #444;
+    color: #444;
+    font-size: 16px;
+    font-weight: 600;
+
 }
 
 #question h2{
@@ -16,8 +44,47 @@
 }
 
 #question button{
-    border: 2px solid #FEFEFE;
-    background-color: #5454a8;
-    padding: 20px;
-    border-radius: 2px solid;
+    background-color: #04ADFF;
+    border-radius: 100px;
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 25px;
+    font-size: 35px;
+    cursor: pointer;
 }
+
+#question button :hover{
+    background-color: #0188cc;
+}
+
+@media (max-width:720px ) {
+
+    
+    .header{
+        flex-direction: column;
+    }
+
+    .scoreBox{
+        margin-bottom: 10px;
+    }
+
+    
+    .title{
+        font-size: 0.8rem;
+        
+    }
+    
+}
+
+
+@media (max-width:620px) {
+   .title{
+    background-color: #0188cc;
+   }
+    
+}
+

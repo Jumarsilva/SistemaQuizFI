@@ -1,10 +1,6 @@
 import { createContext, useReducer} from "react";
 import questions from '../data/questions'
 
-
-
-
-
 const STAGES = ['Start',"Playing", "End"]
 
 const initialState = {
@@ -13,6 +9,7 @@ const initialState = {
     currentQuestion:0,
     score: 0,
     answerSelected: false,
+    timer:200,
 }
 
 const quizReducer = (state, action) =>{
@@ -71,7 +68,15 @@ const quizReducer = (state, action) =>{
                 answerSelected: option,
             }
 
-            
+        
+
+       
+
+
+
+
+
+
         default:
             return state;
     }

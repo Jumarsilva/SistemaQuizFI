@@ -18,12 +18,12 @@
 
 
 .correct{
-    background-color: #0bfc03;
+    background-color: #088803;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .wrong{
     background-color: #040489;
-    opacity: .4;
+    opacity: .2;
 }

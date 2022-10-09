@@ -21,8 +21,7 @@ const Quiz = () => {
 
   return (
     <div className='container-quiz'>
-      <h1>Quiz da FI Group</h1>
-      
+     
       {quizState.gameStage === "Start" && <Welcome/>}
       {quizState.gameStage === "Playing" && <Question/>}
       {quizState.gameStage === "End" && <GameOver/>}

@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 //componentes
-import Login from './pages/Login';
+
 import Quiz from './pages/Quiz';
 
 //bibliotecas
@@ -17,9 +17,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Routes>
-          <Route path='/' element={<Login/>}/>
-          <Route path='/:quiz' element={<Quiz/>}/>            
+        <Routes>          
+          <Route path='/' element={<Quiz/>}/>            
         </Routes>
       </Router>
     </div>

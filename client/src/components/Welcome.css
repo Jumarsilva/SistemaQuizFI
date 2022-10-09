@@ -1,20 +1,118 @@
+:root{
+    --main-color: #0000A4;
+    --font-color: #FEFEFE;
+    --fontSecond-color:#444;
+    --button-color:#04ADFF;
+    --buttonHover-color:#0188cc;
+
+}
+
 #welcome{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.leftSide, .rightSide{
+    width: 50%;
+}
+
+.leftSide img{
+    max-width: 300px;
+    max-height: 300px;    
+    height: auto;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.rightSide h1{
+    color: var(--main-color);
+    font-size: 50px;
+}
+
+.rightSide h2{
+    color: var(--fontSecond-color);
+    margin: 30px auto 20px;
+    font-size: 25px;
+}
+
+.rightSide ul{
+    color: var(--fontSecond-color);
+    font-size: 18px;
+    margin-top: 5px;
+    font-weight: 600;
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+.rightSide ul li{
+    margin-top: 10px;
+}
+
+.rightSide button{
+    background-color: var(--button-color);
+    border-radius: 100px;
+    color: var(--font-color);
+    font-weight: 600;
+    width: 100%;
+    display: inline-block;
     text-align: center;
-    max-width: 500px;
-}
+    padding: 15px 0;
+    margin-top: 25px;
+    font-size: 35px;
+    cursor: pointer;
 
-#welcome h2,
-#welcome p{
-    margin-bottom: 1rem;
-}
-
-#welcome p{
-    color:#FEFEFE;
 }
 
 
-#welcome img{
-    margin-top: 2rem;
-    
-    
+.rightSide button:hover{
+    background-color: #0188cc;
 }
+
+@media (max-width: 940px) {
+
+    .leftSide{
+        display: none;
+    }
+        
+    .leftSide, .rightSide{
+        width: 100%;
+    }
+        
+    .rightSide h1{
+        font-size: 2rem;
+    }
+        
+    .rightSide h2{
+        font-size: 1.3rem;
+    }
+
+    .rightSide ul{
+        font-size: 1rem;
+    }
+
+    .rightSide button{
+        font-size: 1rem;
+    }
+
+}
+
+
+@media (max-width: 940px){
+     
+    .rightSide h1{
+        font-size: 1.5rem;
+    }
+        
+    .rightSide h2{
+        font-size: 1rem;
+    }
+
+    .rightSide ul{
+        font-size: .8rem;
+    }
+
+
+}
+

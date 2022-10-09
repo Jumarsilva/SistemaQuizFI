@@ -1,19 +1,65 @@
-#gameover{
-    text-align: center;
-    max-width: 500px;
+.box{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2);
+    padding: 50px;
+    min-height: 350px;
+    width: 100%;
+}
+
+
+.title{
+    border-bottom: 1px solid #5454a8;
+    color: #5454a8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.box-container{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
-#gameover h2,
-#gameover p{
-    margin-bottom: 1rem;
+#gameover{
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 15px;
+    font-size: 20px;
+
 }
 
-#gameover p{
-    color:#FEFEFE;
+#gameover * :nth-child(add){
+    text-align: right;
 }
 
-#gameover img{
-    margin: 2rem;    
+#gameover span{
+    font-weight: 600;
+}
+
+
+.box-container img{
+    border-radius: 50%;    
+}
+
+.return button{
+    background-color: #04ADFF;
+    border-radius: 100px;
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 25px;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+
+.return button:hover{
+    background-color: #0188cc;
 }

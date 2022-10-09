@@ -1,5 +1,5 @@
 //import axios from 'axios'
-import data from '../data/questions';
+import data from '../../data/questions';
 import axios from 'axios'
 
 

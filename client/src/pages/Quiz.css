@@ -1,13 +1,19 @@
 .container-quiz{
-    text-align: center;
-    padding-top: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    width: 100%;
+    max-width: 940px;
+    min-height: 350px;
+    background-color: #fff;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2);
+    padding: 80px 90px;
+    border-radius: 10px;
 }
 
-.container-quiz h1{
-    margin-bottom: 2rem;
-    color: #fff;
+@media (max-width: 940px) {
+   
+    .container-quiz{
+        width: 80%;
+    }
+
+
 }
+
