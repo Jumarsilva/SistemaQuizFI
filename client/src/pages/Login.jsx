@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Redirect} from "react-router-dom";
 
+import './Login.css'
+
 const Login = () => {
-    const [user, setUser] = useState("");
+    /*const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -19,6 +21,7 @@ const Login = () => {
     }
 
     return (
+        <div className="container">
         <form onSubmit={handleSubmit}>
             <label>
                 User:
@@ -38,7 +41,8 @@ const Login = () => {
             </label>
             <button type="submit">Login</button>
         </form>
-    );
+        </div>
+    );*/
 };
 
 export default Login

@@ -1,2 +1,0 @@
-          <Route path="/Login" component={<Login/>} />
-          <Route path="/dashboard" component={<Dashboard/>} />
